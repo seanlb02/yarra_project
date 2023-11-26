@@ -73,7 +73,7 @@ function MapboxMap() {
 
 return (
 <>
-   <div ref={mapNode} style={{position: "absolute", width: "100%", height: "100%" }}/>
+   <div ref={mapNode} style={{width: "100%", height: "100%" }}/>
                 
    
                 </>

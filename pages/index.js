@@ -12,17 +12,19 @@ const Map = dynamic(
 export default function Home() {
   return (
     <main className={styles.pageContainer}>
-      <div className="flex ">
+      <div className="flex">
           <div className={styles.titleContainer}><div className="font-space">Reimagining Birrarung</div></div>
           <div className={styles.subheader}>GIS layers can/will be added</div>
      </div>
-     <Map/>
+     
+        <Map/>
+     
     </main>
   )
 }
 
 const styles = {
   pageContainer: "flex flex-col items-center h-[100vh] w-[100vw]",
-  titleContainer: "flex font-space mt-12 mb-8 align-center text-left w-[60vw] h-fit text-7xl",
-  subheader: "flex w-[40vw] font-space mt-24 h-fit justify-center  mb-10"
+  titleContainer: "flex font-space mt-2 mb-8 align-center text-left w-[60vw] h-fit text-7xl",
+  subheader: "flex w-[40vw] font-space mt-12 h-fit justify-center mb-10"
 }
