@@ -64,6 +64,33 @@ function MapboxMap() {
       mapp.current.rotateTo(90, { duration: 50000 })
       }
       
+ 
+      mapp.current.on('load', () => {
+        mapp.current.addSource('tileset_data', {
+        type: 'vector',
+        // Use any Mapbox-hosted tileset using its tileset id.
+        // Learn more about where to find a tileset id:
+        // https://docs.mapbox.com/help/glossary/tileset-id/
+        url: 'mapbox://sean123456789.an6v1uiq'
+        });
+        mapp.current.addLayer(
+        {
+        'id': 'sean123456789.an6v1uiq',
+        'type': 'line',
+        'source': 'tileset_data',
+        'source-layer': 'Line_Notes_2-580doi',
+        'layout': {
+        'line-join': 'round',
+        'line-cap': 'round'
+        },
+        'paint': {
+        'line-color': '#ff69b4',
+        'line-width': 2
+        }
+        },
+        );
+        });
+
     },[])
   
 
