@@ -45,18 +45,25 @@ function MapboxMap() {
         container: node,
               accessToken: 'pk.eyJ1Ijoic2VhbjEyMzQ1Njc4OSIsImEiOiJjbHBhcTdtdjIwODRxMmxvd3JxdHE1Zms4In0.6PQO6PDIdekSvP3RX41Yhg',
               style:'mapbox://styles/mapbox/standard-beta',
+              // style:'mapbox://styles/sean123456789/clpf965kx004g01r88khpd5c6',
+              // mapbox://styles/sean123456789/clpf8buor004w01opbir920b1
+
+              
+            
         center: [lng, lat],
         zoom: zoom,
         pitch: 70,
         attributionControl: false,
+        
     
        
       });
-      mapp.current.addControl(new mapboxgl.NavigationControl())
+      // mapp.current.addControl(new mapboxgl.NavigationControl())
           // save the map object to React.useState
       setMap(mapp.current);
-
+      mapp.current.rotateTo(90, { duration: 50000 })
       }
+      
     },[])
   
 

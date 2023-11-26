@@ -14,7 +14,7 @@ export default function Home() {
     <main className={styles.pageContainer}>
       <div className="flex">
           <div className={styles.titleContainer}><div className="font-space">Reimagining Birrarung</div></div>
-          <div className={styles.subheader}>GIS layers can/will be added</div>
+          <div className={styles.subheader}>Hold down <span className='mx-2'><strong>ctrl</strong></span> while navigating to rotate and tilt map</div>
      </div>
      
         <Map/>

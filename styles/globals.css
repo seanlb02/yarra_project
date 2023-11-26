@@ -34,7 +34,9 @@ body {
 
 /* .mapboxgl-canvas-container {
 
-  height: 100vh;
-  width: 100vw;
+  "showPointOfInterestLabels": false,
+  "showTransitLabels": false,
+  "showPlaceLabels": false,
+  "showRoadLabels": true
 
-} */
+}  */
