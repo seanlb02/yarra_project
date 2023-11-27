@@ -23,14 +23,17 @@ function MapboxMap() {
   // will contain `null` by default
     const mapNode = useRef(null);
     const mapp = useRef(null);
-    const [lng, setLng] = useState(144.96332000);
-    const [lat, setLat] = useState(-37.81400000);
+    const [lng, setLng] = useState(144.961555);
+    const [lat, setLat] = useState(-37.819811);
     const [zoom, setZoom] = useState(16);
+
+
 
     const [noGPS, setNoGPS] = useState(false);
     const geolocationAPI = navigator.geolocation;
 
     const [loaded, setLoaded] = useState(true)
+    const [imported, setImported] = useState(false)
     const [markerData, setMarkerData] = useState([])
 
    
@@ -49,51 +52,55 @@ function MapboxMap() {
               // mapbox://styles/sean123456789/clpf8buor004w01opbir920b1
 
               
-            
+        // bearing: 75,
         center: [lng, lat],
         zoom: zoom,
         pitch: 70,
         attributionControl: false,
         
-    
+        
        
       });
       // mapp.current.addControl(new mapboxgl.NavigationControl())
           // save the map object to React.useState
-      setMap(mapp.current);
-      mapp.current.rotateTo(90, { duration: 50000 })
+      
+      setMap(mapp.current);  
+      mapp.current.rotateTo(73, { duration: 7000 })
+      setImported(true)
+      
       }
       
- 
-      mapp.current.on('load', () => {
-        mapp.current.addSource('tileset_data', {
-        type: 'vector',
-        // Use any Mapbox-hosted tileset using its tileset id.
-        // Learn more about where to find a tileset id:
-        // https://docs.mapbox.com/help/glossary/tileset-id/
-        url: 'mapbox://sean123456789.an6v1uiq'
-        });
-        mapp.current.addLayer(
-        {
-        'id': 'sean123456789.an6v1uiq',
-        'type': 'line',
-        'source': 'tileset_data',
-        'source-layer': 'Line_Notes_2-580doi',
-        'layout': {
-        'line-join': 'round',
-        'line-cap': 'round'
-        },
-        'paint': {
-        'line-color': '#ff69b4',
-        'line-width': 2
-        }
-        },
-        );
-        });
+    
+     
 
     },[])
   
-
+    useEffect(() => {
+        if(imported){
+            mapp.current.on('load', () => {
+              mapp.current.addSource('my_data', {
+              type: 'vector',
+           
+              url: 'mapbox://sean123456789.an6v1uiq'
+              });
+              mapp.current.addLayer(
+              {
+              'id': 'sean123456789.an6v1uiq',
+              'type': 'line',
+              'source': 'my_data',
+              'source-layer': 'Line_Notes_2-580doi',
+              'layout': {
+              'line-join': 'round',
+              'line-cap': 'round'
+              },
+              'paint': {
+              'line-color': '#ff69b4',
+              'line-width': 2
+              }
+              },
+              );
+              })};
+    }, [imported])
 
   const reCenter = function() {
     console.log("flying")

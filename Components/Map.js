@@ -70,5 +70,5 @@ return (
 ) 
 }
 const styles = {
-    pageContainer: "border border-black bg-black h-[100vh] w-[100vw]",
+    pageContainer: "border  h-[100vh] w-[100vw]",
 }
